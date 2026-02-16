@@ -35,7 +35,7 @@ const NAV_ITEMS = [
   { href: "/", label: "Dashboard", icon: LayoutDashboard },
   { href: "/inbox", label: "Inkorg", icon: Inbox, badge: 3 },
   { href: "/requests", label: "Alla arenden", icon: FileText },
-  { href: "/calendar", label: "Planering", icon: CalendarDays },
+  // { href: "/calendar", label: "Planering", icon: CalendarDays },
   // { href: "/settings", label: "Installningar", icon: Settings },
 ]
 

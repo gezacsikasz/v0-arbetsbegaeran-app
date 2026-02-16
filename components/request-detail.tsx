@@ -182,8 +182,8 @@ export function RequestDetail({ requestId }: { requestId: string }) {
               </Button>
             )}
             <Button size="sm" variant="outline">
-              <FileDown className="mr-1.5 h-4 w-4" />
-              Generera dokument
+              <Upload className="mr-1.5 h-4 w-4" />
+              Ladda upp dokument
             </Button>
           </div>
         )}
@@ -484,12 +484,12 @@ export function RequestDetail({ requestId }: { requestId: string }) {
                   </div>
                 ))}
                 <Button variant="outline" size="sm" className="mt-1">
-                  <FileDown className="mr-1.5 h-3.5 w-3.5" />
-                  Generera ny version
+                  <Upload className="mr-1.5 h-3.5 w-3.5" />
+                  Ladda upp ny version
                 </Button>
               </div>
             ) : (
-              <p className="text-xs text-muted-foreground">Inga dokument genererade</p>
+              <p className="text-xs text-muted-foreground">Inga dokument uppladdade</p>
             )}
           </div>
         </aside>
