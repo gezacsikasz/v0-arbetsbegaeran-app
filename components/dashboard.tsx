@@ -59,14 +59,12 @@ export function Dashboard() {
             Oversikt som {ROLE_LABELS[currentRole]}
           </p>
         </div>
-        {currentRole === "applicant" && (
-          <Link href="/requests/new">
-            <Button>
-              <Plus className="mr-2 h-4 w-4" />
-              Ny arbetsbegaran
-            </Button>
-          </Link>
-        )}
+        <Link href="/requests/new">
+          <Button>
+            <Plus className="mr-2 h-4 w-4" />
+            Skapa Arbetsorder
+          </Button>
+        </Link>
       </div>
 
       {/* KPI cards */}

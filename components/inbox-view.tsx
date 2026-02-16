@@ -11,6 +11,7 @@ import {
   MapPin,
   User,
   X,
+  Plus,
 } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -63,6 +64,12 @@ export function InboxView() {
             {filtered.length} arenden
           </p>
         </div>
+        <Link href="/requests/new">
+          <Button>
+            <Plus className="mr-2 h-4 w-4" />
+            Skapa Arbetsorder
+          </Button>
+        </Link>
       </div>
 
       {/* Filters */}
