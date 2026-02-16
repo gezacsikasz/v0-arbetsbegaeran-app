@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import {
   ArrowLeft,
@@ -65,6 +65,7 @@ const DEFAULT_REQUISITES = [
 export function CreateRequestForm() {
   const router = useRouter()
   const { setRequests, requests, currentRole } = useApp()
+  const [mounted, setMounted] = useState(false)
   const [step, setStep] = useState(1)
 
   // Step 1 state
@@ -174,8 +175,18 @@ export function CreateRequestForm() {
 
   const isAdmin = currentRole === "controlroom" || currentRole === "shiftlead1" || currentRole === "shiftlead2"
 
+  useEffect(() => { setMounted(true) }, [])
+
+  if (!mounted) {
+    return (
+      <div className="flex h-full items-center justify-center">
+        <div className="text-muted-foreground">Laddar formularet...</div>
+      </div>
+    )
+  }
+
   return (
-    <div className="flex h-full flex-col" suppressHydrationWarning>
+    <div className="flex h-full flex-col">
       {/* Title header */}
       <div className="border-b border-border px-6 py-6 text-center">
         <h1 className="text-2xl font-bold tracking-tight text-foreground">
