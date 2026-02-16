@@ -36,7 +36,7 @@ const NAV_ITEMS = [
   { href: "/inbox", label: "Inkorg", icon: Inbox, badge: 3 },
   { href: "/requests", label: "Alla arenden", icon: FileText },
   { href: "/calendar", label: "Planering", icon: CalendarDays },
-  { href: "/settings", label: "Installningar", icon: Settings },
+  // { href: "/settings", label: "Installningar", icon: Settings },
 ]
 
 const ROLE_COLORS: Record<Role, string> = {
