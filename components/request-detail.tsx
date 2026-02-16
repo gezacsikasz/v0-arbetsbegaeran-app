@@ -26,6 +26,7 @@ import { Separator } from "@/components/ui/separator"
 import { StatusChip } from "@/components/status-chip"
 import { PriorityIndicator } from "@/components/priority-indicator"
 import { RequestInfoModal } from "@/components/request-info-modal"
+import { GateProgress } from "@/components/gate-progress"
 import { useApp } from "@/lib/app-context"
 import { ROLE_LABELS, type WorkRequest } from "@/lib/types"
 import { cn } from "@/lib/utils"
@@ -187,6 +188,9 @@ export function RequestDetail({ requestId }: { requestId: string }) {
           </div>
         )}
       </div>
+
+      {/* Gate progress */}
+      <GateProgress status={request.status} />
 
       {/* Body: main content + sidebar */}
       <div className="flex flex-1 overflow-hidden">
