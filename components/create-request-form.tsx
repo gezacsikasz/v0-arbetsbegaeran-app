@@ -175,7 +175,7 @@ export function CreateRequestForm() {
   const isAdmin = currentRole === "controlroom" || currentRole === "shiftlead1" || currentRole === "shiftlead2"
 
   return (
-    <div className="flex h-full flex-col">
+    <div className="flex h-full flex-col" suppressHydrationWarning>
       {/* Title header */}
       <div className="border-b border-border px-6 py-6 text-center">
         <h1 className="text-2xl font-bold tracking-tight text-foreground">
