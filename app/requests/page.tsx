@@ -2,13 +2,13 @@
 
 import { AppProvider } from "@/lib/app-context"
 import { AppShell } from "@/components/app-shell"
-import { Dashboard } from "@/components/dashboard"
+import { InboxView } from "@/components/inbox-view"
 
-export default function Home() {
+export default function RequestsPage() {
   return (
     <AppProvider>
       <AppShell>
-        <Dashboard />
+        <InboxView />
       </AppShell>
     </AppProvider>
   )

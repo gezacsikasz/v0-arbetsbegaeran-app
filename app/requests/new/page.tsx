@@ -2,13 +2,13 @@
 
 import { AppProvider } from "@/lib/app-context"
 import { AppShell } from "@/components/app-shell"
-import { Dashboard } from "@/components/dashboard"
+import { CreateRequestForm } from "@/components/create-request-form"
 
-export default function Home() {
+export default function NewRequestPage() {
   return (
     <AppProvider>
       <AppShell>
-        <Dashboard />
+        <CreateRequestForm />
       </AppShell>
     </AppProvider>
   )
