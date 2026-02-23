@@ -32,7 +32,6 @@ export function Dashboard() {
       review: byStatus("review"),
       needsMoreInfo: byStatus("needs_more_info"),
       approved: byStatus("approved"),
-      planned: byStatus("planned"),
       ready: byStatus("ready"),
       completed: byStatus("completed"),
       total: requests.length,
@@ -89,8 +88,8 @@ export function Dashboard() {
             variant="orange"
           />
           <StatCard
-            title="Planerade denna vecka"
-            value={stats.planned}
+            title="Redo denna vecka"
+            value={stats.ready}
             icon={CalendarDays}
             variant="emerald"
           />
@@ -116,8 +115,8 @@ export function Dashboard() {
             variant="orange"
           />
           <StatCard
-            title="Planerade"
-            value={stats.planned + stats.ready}
+            title="Redo"
+            value={stats.ready}
             icon={CheckCircle2}
             variant="emerald"
           />
@@ -138,7 +137,6 @@ export function Dashboard() {
                 { status: "review" as Status, count: stats.review },
                 { status: "needs_more_info" as Status, count: stats.needsMoreInfo },
                 { status: "approved" as Status, count: stats.approved },
-                { status: "planned" as Status, count: stats.planned },
                 { status: "ready" as Status, count: stats.ready },
                 { status: "completed" as Status, count: stats.completed },
               ] as const
@@ -148,7 +146,7 @@ export function Dashboard() {
                   <StatusChip status={item.status} />
                   <span className="text-lg font-bold text-foreground">{item.count}</span>
                 </div>
-                {i < 7 && (
+                {i < 6 && (
                   <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground" />
                 )}
               </div>

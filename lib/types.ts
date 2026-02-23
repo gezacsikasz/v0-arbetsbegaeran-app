@@ -7,7 +7,6 @@ export type Status =
   | "needs_more_info"
   | "approved"
   | "rejected"
-  | "planned"
   | "ready"
   | "completed"
 
@@ -18,7 +17,6 @@ export const STATUS_LABELS: Record<Status, string> = {
   needs_more_info: "Komplettering",
   approved: "Godkand",
   rejected: "Avslagen",
-  planned: "Planerad",
   ready: "REDO",
   completed: "Avslutad",
 }
@@ -30,7 +28,6 @@ export const STATUS_COLORS: Record<Status, string> = {
   needs_more_info: "bg-orange-100 text-orange-800",
   approved: "bg-emerald-100 text-emerald-800",
   rejected: "bg-red-100 text-red-800",
-  planned: "bg-sky-100 text-sky-800",
   ready: "bg-emerald-200 text-emerald-900",
   completed: "bg-muted text-muted-foreground",
 }

@@ -92,23 +92,6 @@ export function RequestDetail({ requestId }: { requestId: string }) {
     })
   }
 
-  const handleMarkPlanned = () => {
-    updateRequest(requestId, {
-      status: "planned",
-      updatedAt: new Date().toISOString(),
-      activityLog: [
-        ...request.activityLog,
-        {
-          id: `a${request.activityLog.length + 1}`,
-          timestamp: new Date().toISOString(),
-          actor: "Demo-anvandare",
-          role: currentRole,
-          action: "Planerade arende",
-        },
-      ],
-    })
-  }
-
   const handleMarkReady = () => {
     updateRequest(requestId, {
       status: "ready",
@@ -169,13 +152,7 @@ export function RequestDetail({ requestId }: { requestId: string }) {
                 </Button>
               </>
             )}
-            {request.status === "approved" && (
-              <Button size="sm" onClick={handleMarkPlanned}>
-                <CalendarDays className="mr-1.5 h-4 w-4" />
-                Boka tid
-              </Button>
-            )}
-            {request.status === "planned" && allFulfilled && (
+            {request.status === "approved" && allFulfilled && (
               <Button size="sm" onClick={handleMarkReady} className="bg-emerald-600 hover:bg-emerald-700 text-white">
                 <Shield className="mr-1.5 h-4 w-4" />
                 Markera REDO

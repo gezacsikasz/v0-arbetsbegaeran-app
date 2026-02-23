@@ -9,7 +9,6 @@ const GATES: { key: Status; label: string }[] = [
   { key: "submitted", label: "Inskickad" },
   { key: "review", label: "Granskning" },
   { key: "approved", label: "Godkand" },
-  { key: "planned", label: "Planerad" },
   { key: "ready", label: "REDO" },
   { key: "completed", label: "Avslutad" },
 ]

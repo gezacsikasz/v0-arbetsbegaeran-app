@@ -680,7 +680,6 @@ export function CreateRequestForm() {
                           <SelectContent>
                             <SelectItem value="submitted">Inskickad</SelectItem>
                             <SelectItem value="review">Granskning</SelectItem>
-                            <SelectItem value="planned">Planerad</SelectItem>
                           </SelectContent>
                         </Select>
                       </div>

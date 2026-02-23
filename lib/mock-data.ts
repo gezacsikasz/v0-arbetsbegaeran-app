@@ -144,12 +144,12 @@ export const MOCK_REQUESTS: WorkRequest[] = [
     requestedStart: "2026-02-18",
     duration: "2 timmar",
     riskImpact: "Lag - Ingen driftpaverkan, redundant matare tillganglig.",
-    status: "planned",
+    status: "approved",
     priority: "low",
     createdBy: "Anna Lindqvist",
     createdByRole: "applicant",
     createdAt: "2026-02-01T10:00:00",
-    updatedAt: "2026-02-16T08:00:00",
+    updatedAt: "2026-02-05T11:00:00",
     assignedTo: "Erik Johansson",
     requisites: [
       { id: "r1", label: "Riskanalys bifogad", fulfilled: true },
@@ -163,7 +163,6 @@ export const MOCK_REQUESTS: WorkRequest[] = [
       { id: "a2", timestamp: "2026-02-01T10:30:00", actor: "Anna Lindqvist", role: "applicant", action: "Skickade in for granskning" },
       { id: "a3", timestamp: "2026-02-03T09:00:00", actor: "Erik Johansson", role: "shiftlead1", action: "Godkande" },
       { id: "a4", timestamp: "2026-02-05T11:00:00", actor: "Maria Svensson", role: "shiftlead2", action: "Godkande" },
-      { id: "a5", timestamp: "2026-02-16T08:00:00", actor: "Erik Johansson", role: "shiftlead1", action: "Planerade till 2026-02-18 kl 10:00" },
     ],
     attachments: [],
     documents: [
