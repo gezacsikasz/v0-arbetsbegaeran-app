@@ -71,25 +71,25 @@ export function Dashboard() {
       {isReviewer ? (
         <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <StatCard
-            title="Nya idag"
+            title="Inkommen arbetsbegäran"
             value={stats.submitted}
             icon={Inbox}
             variant="blue"
           />
           <StatCard
-            title="Vantar granskning"
+            title="Skriven Driftorder"
             value={stats.review}
             icon={Clock}
             variant="amber"
           />
           <StatCard
-            title="Komplettering skickad"
+            title="Driftorder under utförande"
             value={stats.needsMoreInfo}
             icon={AlertTriangle}
             variant="orange"
           />
           <StatCard
-            title="Planerade denna vecka"
+            title="Avslutade"
             value={stats.planned}
             icon={CalendarDays}
             variant="emerald"
