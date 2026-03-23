@@ -10,7 +10,7 @@ export const FACILITIES = [
 export const MOCK_REQUESTS: WorkRequest[] = [
   {
     id: "ARB-1001",
-    title: "Byte av ventil V-4021 i kylkrets 2",
+    title: "Arbetsbegäran 1",
     description:
       "Ventil V-4021 visar tecken pa lackage och behover bytas. Arbetet kraver dranering av delkrets och installning av temporar bypass.",
     facility: "Anlaggning C - Kylsystem",
