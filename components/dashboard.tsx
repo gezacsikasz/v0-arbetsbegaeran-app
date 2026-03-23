@@ -47,6 +47,21 @@ export function Dashboard() {
     [requests]
   )
 
+  const arbetsordrar = useMemo(
+    () => requests.filter((r) => r.status === "submitted"),
+    [requests]
+  )
+
+  const skrivnaDriftordrar = useMemo(
+    () => requests.filter((r) => r.status === "review" || r.status === "approved"),
+    [requests]
+  )
+
+  const driftordrarUnderUtforande = useMemo(
+    () => requests.filter((r) => r.status === "planned" || r.status === "ready"),
+    [requests]
+  )
+
   const isReviewer = currentRole === "controlroom" || currentRole === "shiftlead1" || currentRole === "shiftlead2"
 
   return (
@@ -163,44 +178,112 @@ export function Dashboard() {
         </CardContent>
       </Card>
 
-      {/* Recent list */}
-      <Card>
-        <CardHeader className="flex flex-row items-center justify-between pb-3">
-          <CardTitle className="text-base font-semibold">Aktiva ärenden</CardTitle>
+      {/* Aktiva ärenden - tre kolumner */}
+      <div className="mb-6">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-base font-semibold">Aktiva ärenden</h2>
           <Link href="/inbox">
             <Button variant="ghost" size="sm">
               Visa alla
               <ArrowRight className="ml-1 h-4 w-4" />
             </Button>
           </Link>
-        </CardHeader>
-        <CardContent className="p-0">
-          <div className="divide-y divide-border">
-            {recentRequests.map((req) => (
-              <Link
-                key={req.id}
-                href={`/requests/${req.id}`}
-                className="flex items-center gap-4 px-6 py-3 hover:bg-accent transition-colors"
-              >
-                <div className="flex flex-col gap-1 flex-1 min-w-0">
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-mono text-muted-foreground">{req.id}</span>
-                    <PriorityIndicator priority={req.priority} />
-                  </div>
-                  <span className="text-sm font-medium text-foreground truncate">
-                    {req.title}
-                  </span>
-                  <span className="text-xs text-muted-foreground">{req.facility}</span>
-                </div>
-                <StatusChip status={req.status} />
-                <span className="text-xs text-muted-foreground whitespace-nowrap">
-                  {new Date(req.updatedAt).toLocaleDateString("sv-SE")}
-                </span>
-              </Link>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
+        </div>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          {/* Kolumn 1: Arbetsordrar */}
+          <Card>
+            <CardHeader className="pb-3">
+              <CardTitle className="text-sm font-semibold">Arbetsordrar</CardTitle>
+            </CardHeader>
+            <CardContent className="p-0">
+              <div className="divide-y divide-border">
+                {arbetsordrar.length === 0 ? (
+                  <p className="px-4 py-3 text-sm text-muted-foreground">Inga arbetsordrar</p>
+                ) : (
+                  arbetsordrar.map((req) => (
+                    <Link
+                      key={req.id}
+                      href={`/requests/${req.id}`}
+                      className="flex flex-col gap-1 px-4 py-3 hover:bg-accent transition-colors"
+                    >
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-mono text-muted-foreground">{req.id}</span>
+                        <PriorityIndicator priority={req.priority} />
+                      </div>
+                      <span className="text-sm font-medium text-foreground truncate">
+                        {req.title}
+                      </span>
+                      <span className="text-xs text-muted-foreground">{req.facility}</span>
+                    </Link>
+                  ))
+                )}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Kolumn 2: Skrivna driftordrar */}
+          <Card>
+            <CardHeader className="pb-3">
+              <CardTitle className="text-sm font-semibold">Skrivna driftordrar</CardTitle>
+            </CardHeader>
+            <CardContent className="p-0">
+              <div className="divide-y divide-border">
+                {skrivnaDriftordrar.length === 0 ? (
+                  <p className="px-4 py-3 text-sm text-muted-foreground">Inga skrivna driftordrar</p>
+                ) : (
+                  skrivnaDriftordrar.map((req) => (
+                    <Link
+                      key={req.id}
+                      href={`/requests/${req.id}`}
+                      className="flex flex-col gap-1 px-4 py-3 hover:bg-accent transition-colors"
+                    >
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-mono text-muted-foreground">{req.id}</span>
+                        <PriorityIndicator priority={req.priority} />
+                      </div>
+                      <span className="text-sm font-medium text-foreground truncate">
+                        {req.title}
+                      </span>
+                      <span className="text-xs text-muted-foreground">{req.facility}</span>
+                    </Link>
+                  ))
+                )}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Kolumn 3: Driftordrar under utförande */}
+          <Card>
+            <CardHeader className="pb-3">
+              <CardTitle className="text-sm font-semibold">Driftordrar under utförande</CardTitle>
+            </CardHeader>
+            <CardContent className="p-0">
+              <div className="divide-y divide-border">
+                {driftordrarUnderUtforande.length === 0 ? (
+                  <p className="px-4 py-3 text-sm text-muted-foreground">Inga driftordrar under utförande</p>
+                ) : (
+                  driftordrarUnderUtforande.map((req) => (
+                    <Link
+                      key={req.id}
+                      href={`/requests/${req.id}`}
+                      className="flex flex-col gap-1 px-4 py-3 hover:bg-accent transition-colors"
+                    >
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-mono text-muted-foreground">{req.id}</span>
+                        <PriorityIndicator priority={req.priority} />
+                      </div>
+                      <span className="text-sm font-medium text-foreground truncate">
+                        {req.title}
+                      </span>
+                      <span className="text-xs text-muted-foreground">{req.facility}</span>
+                    </Link>
+                  ))
+                )}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
     </div>
   )
 }
