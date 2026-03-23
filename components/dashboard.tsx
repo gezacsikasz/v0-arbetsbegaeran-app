@@ -69,7 +69,7 @@ export function Dashboard() {
 
       {/* KPI cards */}
       {isReviewer ? (
-        <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
           <StatCard
             title="Inkommen arbetsbegäran"
             value={stats.submitted}
@@ -87,6 +87,12 @@ export function Dashboard() {
             value={stats.needsMoreInfo}
             icon={AlertTriangle}
             variant="orange"
+          />
+          <StatCard
+            title="Skickat för komplettering"
+            value={stats.approved}
+            icon={Send}
+            variant="blue"
           />
           <StatCard
             title="Avslutade"
