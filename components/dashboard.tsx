@@ -166,7 +166,7 @@ export function Dashboard() {
       {/* Recent list */}
       <Card>
         <CardHeader className="flex flex-row items-center justify-between pb-3">
-          <CardTitle className="text-base font-semibold">Senaste arenden</CardTitle>
+          <CardTitle className="text-base font-semibold">Aktiva ärenden</CardTitle>
           <Link href="/inbox">
             <Button variant="ghost" size="sm">
               Visa alla
