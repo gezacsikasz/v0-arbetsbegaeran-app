@@ -56,7 +56,7 @@ export function Dashboard() {
         <div>
           <h1 className="text-2xl font-bold tracking-tight text-foreground">Dashboard</h1>
           <p className="text-sm text-muted-foreground">
-            Oversikt som {ROLE_LABELS[currentRole]}
+            Översikt
           </p>
         </div>
         <Link href="/requests/new">
